@@ -195,7 +195,7 @@ if __name__ == "__main__":
 
     command_line = tkinter.Text(command_frame, width=105, height=2, fg="white", bg="black")
     command_line.pack(fill=tkinter.BOTH, expand=True, padx=10, pady=10)
-    command_line.bind(command_line.bind("<Return>", Listener.execute_command))
+    command_line.bind("<Return>", Listener.execute_command)
 
 
 #=======================================================================================================#
