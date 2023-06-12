@@ -42,6 +42,9 @@ class Listener():
         if command_input == "clear" or command_input == "cls":
             output_text.delete("1.0", tkinter.END)
         
+        elif command_input == "":
+            pass
+
         else:
             try:
                 connection1.send(command_input.encode("utf-8"))
