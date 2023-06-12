@@ -93,7 +93,7 @@ if __name__ == "__main__":
 #MAIN FRAME
 #=======================================================================================================#
     window = tkinter.Tk()
-    window.title("Listener")
+    window.title("Socket Monitor")
 
     frame = tkinter.Frame(window, bg="#262626")
     frame.pack(fill=tkinter.BOTH, expand=True)
