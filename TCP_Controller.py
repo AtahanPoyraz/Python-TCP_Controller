@@ -101,12 +101,6 @@ if __name__ == "__main__":
     frame = tkinter.Frame(window, bg="#262626")
     frame.pack(fill=tkinter.BOTH, expand=True)
 
-    width = 1210
-    height = 699
-
-    window.resizable(False, False)
-    window.geometry(f"{width}x{height}")
-
 #CONTAINER FRAME
 #=======================================================================================================#
     container_frame = tkinter.Frame(frame, bg="#303030")
